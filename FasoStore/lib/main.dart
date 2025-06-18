@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'providers/auth_provider.dart';
 import 'providers/user_provider.dart';
 import 'providers/cart_provider.dart';
 import 'providers/product_provider.dart';
 import 'providers/order_provider.dart';
+import 'providers/delivery_provider.dart';
+import 'providers/delivery_zones_provider.dart';
 import 'screens/common/splash_screen.dart';
 import 'screens/common/onboarding_screens.dart';
 import 'screens/auth/login_screen.dart';
@@ -27,7 +31,9 @@ import 'screens/admin/product_management_screen.dart';
 import 'screens/admin/order_management_screen.dart';
 import 'screens/common/settings_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -45,13 +51,25 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => OrderProvider()),
       ],
       child: MaterialApp(
-        title: 'Flutter E-commerce',
+        title: 'Faso Store',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          brightness: Brightness.light,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF1A5F7A),
+            primary: const Color(0xFF1A5F7A),
+            secondary: const Color(0xFFE57373),
+          ),
+          textTheme: GoogleFonts.poppinsTextTheme(),
+          useMaterial3: true,
         ),
         darkTheme: ThemeData(
-          brightness: Brightness.dark,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF1A5F7A),
+            primary: const Color(0xFF1A5F7A),
+            secondary: const Color(0xFFE57373),
+            brightness: Brightness.dark,
+          ),
+          textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
+          useMaterial3: true,
         ),
         initialRoute: '/',
         routes: {
