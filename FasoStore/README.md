@@ -1,37 +1,67 @@
-# Flutter E-commerce Project
+# Faso Store
 
-This is a complete Flutter e-commerce application with the following features:
-- Phone number authentication restricted to Burkina Faso, Mali, and Niger
-- User roles: Buyer, Seller, Admin
-- Commission fees similar to AliExpress
-- Modern UI inspired by AliExpress
-- Seller dashboard with image processing tools (background removal, etc.)
-- Payment integration: Mobile Money (Orange Money, Moov Money, Telecel Money) and Credit Card
-- Logo integration and branding
+Application de marketplace pour le Burkina Faso développée avec Flutter.
 
-## Project Structure
+## Fonctionnalités
 
-- /lib
-  - /models
-  - /screens
-  - /services
-  - /widgets
-  - /utils
-  - /providers
-- /assets
-  - /images
-  - /icons
-- /config
+- 🛍️ Achat et vente de produits
+- 🚚 Système de livraison intégré
+- 💳 Paiement sécurisé (Mobile Money, Carte)
+- 📱 Interface utilisateur intuitive
+- 🗺️ Géolocalisation des vendeurs et livreurs
+- 📊 Tableau de bord administrateur
 
-## Getting Started
+## Configuration requise
 
-- Flutter SDK required
-- Firebase for authentication and backend services
-- Payment gateways integration (to be configured)
+- Flutter SDK >=3.0.0 <4.0.0
+- Dart SDK >=3.0.0 <4.0.0
+- Firebase project configuré
 
-## Next Steps
+## Installation
 
-- Setup Flutter project and folder structure
-- Implement authentication with phone number restriction
-- Design UI screens
-- Implement seller dashboard and payment integration
+1. Cloner le projet
+```bash
+git clone https://github.com/votre-username/faso-store.git
+```
+
+2. Installer les dépendances
+```bash
+flutter pub get
+```
+
+3. Configurer Firebase
+- Ajouter le fichier google-services.json pour Android
+- Ajouter le fichier GoogleService-Info.plist pour iOS
+
+4. Lancer l'application
+```bash
+flutter run
+```
+
+## Structure du projet
+
+```
+lib/
+├── models/         # Modèles de données
+├── providers/      # Gestion d'état avec Provider
+├── screens/        # Écrans de l'application
+├── services/       # Services (Firebase, API, etc.)
+├── utils/          # Utilitaires et constantes
+└── widgets/        # Widgets réutilisables
+```
+
+## Technologies utilisées
+
+- Flutter
+- Firebase (Auth, Firestore, Storage)
+- Provider pour la gestion d'état
+- Google Maps pour la géolocalisation
+- Stripe pour les paiements
+
+## Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à soumettre une pull request.
+
+## Licence
+
+MIT License
